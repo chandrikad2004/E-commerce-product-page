@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Page</title>
+    <link rel="stylesheet" href="cart.css"> 
+    <script defer src="cart.js"></script> 
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">Sneakers</div>
+            <ul class="nav-links">
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Product Section -->
+    <div class="product-page">
+        <div class="product-gallery">
+            <!-- Main Product Image -->
+            <img id="mainProductImage" src="https://www.hypeelixir.com/cdn/shop/files/Untitled-1_0012s_0003_Layer836-828771.jpg?v=1712587557&width=2000" alt="Product Image" class="main-image" onclick="gallery.openLightbox()">
+
+            <!-- Thumbnail Images -->
+            <div class="thumbnails">
+                <img src="https://www.hypeelixir.com/cdn/shop/files/Untitled-1_0012s_0003_Layer836-828771.jpg?v=1712587557&width=2000" class="thumbnail" onclick="gallery.changeImage(this.src)" alt="Thumbnail 1">
+                <img src="https://www.hypeelixir.com/cdn/shop/files/Untitled-1_0012s_0001_Layer838-889800.jpg?v=1712587557&width=2000" class="thumbnail" onclick="gallery.changeImage(this.src)" alt="Thumbnail 2">
+                <img src="https://www.hypeelixir.com/cdn/shop/files/Untitled-1_0012s_0000_Layer839-396402.jpg?v=1712587557&width=2000" class="thumbnail" onclick="gallery.changeImage(this.src)" alt="Thumbnail 3">
+            </div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <h1>New Balance 550 White Green</h1>
+            <p class="price">$79.99 <span class="old-price">$99.99</span></p>
+            <div class="quantity-selector">
+                <button onclick="cart.decreaseQuantity()">-</button>
+                <input type="text" id="quantity" value="1" readonly>
+                <button onclick="cart.increaseQuantity()">+</button>
+            </div>
+            <button class="add-to-cart" onclick="cart.addToCart('Cool Sneakers', 79.99)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+
+        <div class="cart-overlay">
+            <button class="cart-button" onclick="cart.viewCart()">View Cart</button>
+            <div id="cartItems"></div>
+            <div id="cartTotal"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox for Image Viewing -->
+    <div id="lightbox" class="lightbox hidden">
+        <button class="nav-button prev" onclick="changeImage(-1)">&#10094;</button>
+        <img id="lightboxImage" alt="Large View" src="https://www.hypeelixir.com/cdn/shop/files/Untitled-1_0012s_0003_Layer836-828771.jpg?v=1712587557&width=2000">
+        <button class="nav-button next" onclick="changeImage(1)">&#10095;</button>
+        <button class="close-button" onclick="closeLightbox()">Close</button>
+    </div>
+
+</body>
+</html>
